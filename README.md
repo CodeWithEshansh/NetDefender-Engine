@@ -44,16 +44,16 @@ This project demonstrates how modern firewalls track connections, inspect packet
 
 ## ⚙️ Installation
 
-1. Clone the repository:
+## 1. Clone the repository:
 
-2. Install dependencies (if needed):
+## 2. Install dependencies (if needed):
 pip install -r requirements.txt
 
-3. ▶️ Usage
+## 3. ▶️ Usage
 Run the application:
 python main.py
 
-4. 🖥️ GUI Controls
+## 4. 🖥️ GUI Controls
 Start → Begin packet simulation
 Stop → Stop simulation
 Simulate Attack → Trigger:
@@ -61,7 +61,7 @@ SQL Injection
 XSS Attack
 Command Injection
 
-5. How It Works
+## 5. How It Works
 Packet Generation
    a. Simulated traffic mimics real network packets
 Validation Layer
@@ -82,31 +82,31 @@ Decision Engine
     a. Allows or blocks packet
     b. Updates stats & logs
 
-6. 📊 Output
+## 6. 📊 Output
 Allowed Packets → Green log panel
 Blocked Packets → Red log panel
 Live Stats → Allowed vs Blocked count
 
-7. 🎯 Use Cases
+## 7. 🎯 Use Cases
 Learning firewall internals
 Cybersecurity demonstrations
 Academic projects
 IDS/IPS concept visualization
 
-8. ⚠️ Limitations
+## 8. ⚠️ Limitations
 Simulated environment (not real packet capture)
 Basic pattern-based detection (no ML)
 No deep packet inspection (DPI)
 
-9. 🔮 Future Improvements
+## 9. 🔮 Future Improvements
 Real packet capture (Scapy / pcap)
 Machine Learning-based detection
 Rule-based firewall configuration
 Logging to files / database
 Web-based dashboard
 
-10. 👨‍💻 Author
+## 10. 👨‍💻 Author
 Eshansh Verma
 
-11. 📄 License
+## 11. 📄 License
 This project is for educational purposes.
