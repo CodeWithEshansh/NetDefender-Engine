@@ -194,4 +194,40 @@ Tracks TCP states: SYN → ESTABLISHED → ACK
 
 ## Support
 
-If you found this project useful, consider giving it a star on GitHub!
+If you found this project useful, consider giving it a ⭐ on GitHub!
+
+---
+
+```
+
+---
+
+## ⚡ After Pasting (important steps)
+
+1. Create folder:
+```
+
+assets/
+
+```
+
+2. Add:
+```
+
+assets/demo.gif
+
+```
+
+3. Replace:
+```
+
+YOUR_USERNAME
+
+```
+
+---
+
+If you want next:
+- I can make an even **more premium version (glass UI, gradient badges, animated sections)**  
+- Or generate a **matching GitHub profile README like the one you showed**
+```
