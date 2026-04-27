@@ -1,7 +1,3 @@
-Here’s a **fully polished, flashy, copy-paste README** — just replace `YOUR_USERNAME` and repo links if needed.
-
----
-
 ````md
 <h1 align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Syne&weight=700&size=40&duration=2500&pause=1000&color=00FFAA&center=true&vCenter=true&width=600&lines=🔥+Firewall+Engine+Simulator;Stateful+Firewall+%7C+IDS+%7C+GUI+Dashboard" />
