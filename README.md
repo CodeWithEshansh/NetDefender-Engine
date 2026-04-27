@@ -1,4 +1,3 @@
-````md
 <h1 align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Syne&weight=700&size=40&duration=2500&pause=1000&color=00FFAA&center=true&vCenter=true&width=600&lines=🔥+Firewall+Engine+Simulator;Stateful+Firewall+%7C+IDS+%7C+GUI+Dashboard" />
 </h1>
@@ -24,7 +23,6 @@ This project demonstrates how modern firewalls track connections, inspect packet
 
 > *(Add your GIF here later)*
 
-```md
 ![Demo](assets/demo.gif)
 ````
 
@@ -238,4 +236,4 @@ YOUR_USERNAME
 If you want next:
 - I can make an even **more premium version (glass UI, gradient badges, animated sections)**  
 - Or generate a **matching GitHub profile README like the one you showed**
-```
+
