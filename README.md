@@ -1,66 +1,75 @@
-<h1 align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Syne&weight=700&size=40&duration=2500&pause=1000&color=00FFAA&center=true&vCenter=true&width=600&lines=Firewall+Engine+Simulator;Stateful+Firewall+%7C+IDS+%7C+GUI+Dashboard" />
-</h1>
+# Firewall Engine Simulator
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python"/>
-  <img src="https://img.shields.io/badge/Type-Simulator-purple?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Security-IDS%2FIPS-red?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/License-Educational-orange?style=for-the-badge"/>
-</p>
+> A stateful firewall engine with intrusion detection, payload inspection, and a real-time GUI dashboard — built for cybersecurity education and demonstration.
+
+<br>
+
+![Python](https://img.shields.io/badge/Python-3.10-4B8BBE?style=flat-square&logo=python&logoColor=white)
+![Type](https://img.shields.io/badge/Type-Simulator-6A5ACD?style=flat-square)
+![Security](https://img.shields.io/badge/Security-IDS%2FIPS-B22222?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Active-2E8B57?style=flat-square)
+![License](https://img.shields.io/badge/License-Educational-DAA520?style=flat-square)
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Core Concepts](#core-concepts)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [How It Works](#how-it-works)
+- [Sample Output](#sample-output)
+- [Feature Status](#feature-status)
+- [Limitations & Roadmap](#limitations--roadmap)
+- [Author](#author)
 
 ---
 
 ## Overview
 
-A **stateful firewall engine simulator** with built-in **intrusion detection** and a **real-time GUI dashboard**.
-This project demonstrates how modern firewalls track connections, inspect packets, and block malicious traffic.
+The **Firewall Engine Simulator** is a Python-based educational tool that replicates the behavior of a modern stateful firewall. It tracks TCP/UDP sessions, inspects packet payloads for known attack signatures, and surfaces all activity through an interactive GUI dashboard.
 
----
-
-## Demo
-
-![Demo](assets/demo.gif)
+This project is intended for students, educators, and cybersecurity enthusiasts who want a hands-on look at how firewalls and intrusion detection systems (IDS) function at a conceptual level.
 
 ---
 
 ## Features
 
-- Stateful packet inspection (TCP & UDP)
-- Session tracking with timeout handling
-- Payload inspection:
-  - SQL Injection
-  - Cross-Site Scripting (XSS)
-  - Command Injection
-- DDoS detection (threshold-based)
-- Port scan detection
-- IP blocking & whitelisting
-- Real-time traffic simulation
-- Interactive GUI dashboard
-- Attack simulation (SQL, XSS, CMD)
+| Category | Capability |
+|---|---|
+| Packet Inspection | Stateful TCP & UDP tracking |
+| Session Management | Connection tracking with timeout handling |
+| Threat Detection | SQL Injection, XSS, Command Injection |
+| Network Attacks | DDoS threshold detection, Port scan detection |
+| Access Control | IP blocking & whitelisting |
+| Simulation | Real-time traffic generation & attack simulation |
+| Interface | Interactive GUI dashboard |
 
 ---
 
 ## Core Concepts
 
-- Stateful Firewall Architecture
-- Intrusion Detection Systems (IDS)
-- Packet Filtering & Validation
-- TCP State Management (SYN → ACK)
-- Signature-based Attack Detection
+- **Stateful Firewall Architecture** — tracks the state of active connections rather than inspecting each packet in isolation
+- **Intrusion Detection System (IDS)** — monitors traffic for known malicious patterns
+- **Packet Filtering & Validation** — enforces structural correctness before deeper inspection
+- **TCP State Management** — models the SYN → ESTABLISHED → ACK handshake lifecycle
+- **Signature-based Detection** — matches payloads against a library of known attack strings
 
 ---
 
 ## Project Structure
 
 ```
-.
-├── main.py
-├── firewall/
-├── detector/
-├── simulator/
-├── utils/
+firewall-simulator/
+├── main.py               # Entry point
+├── firewall/             # Core firewall engine
+├── detector/             # IDS / signature matching
+├── simulator/            # Traffic & attack simulation
+├── utils/                # Shared utilities
+├── assets/               # Screenshots, demo GIF
 └── README.md
 ```
 
@@ -68,9 +77,16 @@ This project demonstrates how modern firewalls track connections, inspect packet
 
 ## Installation
 
+**Prerequisites:** Python 3.10+
+
 ```bash
-git clone https://github.com/eshanshverma/firewall-simulator.git
+# Clone the repository
+git clone https://github.com/CodeWithEshansh/firewall-simulator.git
+
+# Navigate into the project directory
 cd firewall-simulator
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
@@ -82,152 +98,97 @@ pip install -r requirements.txt
 python main.py
 ```
 
----
+### GUI Controls
 
-## GUI Controls
-
-- **Start** — Begin packet simulation
-- **Stop** — Stop simulation
-- **Simulate Attack**:
-  - SQL Injection
-  - XSS Attack
-  - Command Injection
+| Control | Action |
+|---|---|
+| Start | Begin real-time packet simulation |
+| Stop | Halt the simulation |
+| Simulate Attack → SQL Injection | Fire a SQL injection payload |
+| Simulate Attack → XSS | Fire a cross-site scripting payload |
+| Simulate Attack → Command Injection | Fire a shell command injection payload |
 
 ---
 
 ## How It Works
 
-<details>
-<summary>Click to expand</summary>
+The simulator processes each packet through a sequential pipeline:
 
-### Packet Generation
+**1. Packet Generation**
+Synthetic traffic is generated to mimic real-world network behavior across a range of source IPs and destination ports.
 
-Simulated traffic mimics real network packets.
+**2. Validation Layer**
+Each packet is checked for structural integrity before being passed deeper into the engine.
 
-### Validation Layer
+**3. Security Checks**
+- High-frequency traffic from a single source triggers DDoS detection
+- Rapid sequential port access triggers port scan detection
 
-Ensures packet structure is correct.
+**4. Payload Inspection**
+Packet payloads are scanned against known malicious signatures, including:
+- `DROP TABLE` — SQL injection
+- `<script>` — Cross-site scripting
+- `rm -rf` — Command injection
 
-### Security Checks
+**5. Stateful Handling**
+TCP connections are tracked across states: `SYN` → `ESTABLISHED` → `ACK`
 
-- Detects DDoS (high packet rate)
-- Detects port scanning
-
-### Payload Inspection
-
-Blocks malicious patterns:
-
-- `DROP TABLE`
-- `<script>`
-- `rm -rf`
-
-### Stateful Handling
-
-Tracks TCP states: SYN → ESTABLISHED → ACK
-
-### Decision Engine
-
-- Allows or blocks packets
-- Updates stats & logs
-
-</details>
+**6. Decision Engine**
+Based on all prior checks, each packet is either allowed or blocked. Results are logged and reflected live in the dashboard.
 
 ---
 
 ## Sample Output
 
 ```
-[ALLOWED] 192.168.1.10 → Port 80
-[BLOCKED] 1.1.1.1 → SQL Injection detected
-[BLOCKED] 5.5.5.5 → DDoS suspected
+[ALLOWED]  192.168.1.10  →  Port 80    HTTP request
+[BLOCKED]  1.1.1.1       →  Port 443   SQL Injection detected
+[BLOCKED]  5.5.5.5       →  Port 80    DDoS threshold exceeded
+[BLOCKED]  9.9.9.9       →  Port 22    Port scan detected
 ```
 
 ---
 
 ## Feature Status
 
-| Feature             | Status |
-| ------------------- | ------ |
-| Stateful Firewall   | ✅     |
-| Payload Inspection  | ✅     |
-| DDoS Detection      | ✅     |
-| Port Scan Detection | ✅     |
-| GUI Dashboard       | ✅     |
+| Feature | Status |
+|---|---|
+| Stateful packet inspection | Complete |
+| Payload signature matching | Complete |
+| DDoS detection | Complete |
+| Port scan detection | Complete |
+| GUI dashboard | Complete |
+| Real packet capture (Scapy/pcap) | Planned |
+| ML-based anomaly detection | Planned |
+| Rule-based configuration UI | Planned |
+| Database logging | Planned |
+| Web-based dashboard | Planned |
 
 ---
 
-## Use Cases
+## Limitations & Roadmap
 
-- Cybersecurity learning
-- Firewall/IDS demonstrations
-- Academic projects
-- Network security visualization
+**Current Limitations**
 
----
+- Operates in a fully simulated environment — no live packet capture
+- Detection is signature-based only; no behavioral or anomaly analysis
+- No Deep Packet Inspection (DPI) support
 
-## Limitations
+**Planned Improvements**
 
-- Simulated environment (no real packet capture)
-- Signature-based detection only
-- No Deep Packet Inspection (DPI)
-
----
-
-## Future Improvements
-
-- Real packet capture (Scapy / pcap)
-- Machine learning-based detection
-- Rule-based firewall configuration
-- Logging to database/files
-- Web-based dashboard
+- Integrate Scapy or libpcap for real network traffic capture
+- Add machine learning-based anomaly detection
+- Build a rule engine for user-defined firewall policies
+- Persistent logging to file or database
+- Replace the desktop GUI with a web-based dashboard
 
 ---
 
 ## Author
 
 **Eshansh Verma**
-
-- Engineering Student
-- Cybersecurity Enthusiast
+Engineering Student · Cybersecurity Enthusiast
 
 ---
 
-## Support
-
-If you found this project useful, consider giving it a ⭐ on GitHub!
-
----
-
-```
-
----
-
-## ⚡ After Pasting (important steps)
-
-1. Create folder:
-```
-
-assets/
-
-```
-
-2. Add:
-```
-
-assets/demo.gif
-
-```
-
-3. Replace:
-```
-
-YOUR_USERNAME
-
-```
-
----
-
-If you want next:
-- I can make an even **more premium version (glass UI, gradient badges, animated sections)**  
-- Or generate a **matching GitHub profile README like the one you showed**
-```
+*If this project was useful to you, consider starring the repository.*
