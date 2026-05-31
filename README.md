@@ -1,4 +1,4 @@
-# Firewall Engine Simulator
+# Netdefender-Engine
 
 > A stateful firewall engine with intrusion detection, payload inspection, and a real-time GUI dashboard — built for cybersecurity education and demonstration.
 
