@@ -9,6 +9,8 @@
 ![Security](https://img.shields.io/badge/Security-IDS%2FIPS-B22222?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Active-2E8B57?style=flat-square)
 ![License](https://img.shields.io/badge/License-Educational-DAA520?style=flat-square)
+Working Demo Screenshot
+<img width="905" height="588" alt="image" src="https://github.com/user-attachments/assets/9f34cdae-13db-446d-8229-bb961ed495f7" />
 
 ---
 
